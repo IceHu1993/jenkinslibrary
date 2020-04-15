@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # JenkinsLibrary
 
 
@@ -28,3 +29,7 @@
 - 公众号： devopsadmin   DevOps持续集成
 - 微信号： proc_code
 - 邮箱： 610556220@qq.com
+=======
+# jenkinslibrary
+zeyangli's  jenkisn sharelibray
+>>>>>>> 7293714529adb56b84696795a21708f9e5a857c8
