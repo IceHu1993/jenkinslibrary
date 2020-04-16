@@ -4,6 +4,7 @@
 
 //func from shareibrary
 def build = new org.devops.build()
+def tools = new org.devops.tools()
 
 
 //env
