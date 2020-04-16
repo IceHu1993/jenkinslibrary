@@ -4,7 +4,7 @@
 
 //func from shareibrary
 def build = new org.devops.build()
-def tools = new org.devops.tools()
+//def tools = new org.devops.tools()
 
 
 //env
@@ -29,7 +29,7 @@ pipeline{
                     
                     println("${branchName}")
                 
-                    tools.PrintMes("获取代码","green")
+                    //tools.PrintMes("获取代码","green")
                     checkout([$class: 'GitSCM', branches: [[name: "${branchName}"]], 
                               doGenerateSubmoduleConfigurations: false, extensions: [], 
                               submoduleCfg: [], 
@@ -41,7 +41,7 @@ pipeline{
             steps{
                 script{
                 
-                    tools.PrintMes("执行打包","green")
+                    //tools.PrintMes("执行打包","green")
                     build.Build(buildType,buildShell)
                 }
             }
