@@ -26,7 +26,9 @@ pipeline{
             steps{
                 script{
                    
-                    
+                    if("${runOpts}" == "GitlabPush"){
+                        branchName = branch - "refs/heads/"
+                    }
                     println("${branchName}")
                 
                     //tools.PrintMes("获取代码","green")
