@@ -13,7 +13,10 @@ String buildShell = "${env.buildShell}"
 String srcUrl = "${env.srcUrl}"
 String branchName = "${env.branchName}"
 
-
+ if("${runOpts}" == "GitlabPush"){
+    branchName = branch - "refs/heads/"
+    currentBuild.description = "Trigger by ${userName} ${branch}"
+ }
 
 //pipeline
 pipeline{
@@ -26,11 +29,6 @@ pipeline{
             steps{
                 script{
                     println("-------------------,${branchName}")
-                   
-                    if("${runOpts}" == "GitlabPush"){
-                        branchName = branch - "refs/heads/"
-                    }
-                    println("-------------------------------,${branchName}")
                 
                     //tools.PrintMes("获取代码","green")
                     checkout([$class: 'GitSCM', branches: [[name: "${branchName}"]], 
