@@ -5,6 +5,7 @@
 //func from shareibrary
 def build = new org.devops.build()
 //def tools = new org.devops.tools()
+def gitlab = new org.devops.gitlab()
 
 
 //env
@@ -16,6 +17,7 @@ String branchName = "${env.branchName}"
  if("${runOpts}" == "GitlabPush"){
     branchName = branch - "refs/heads/"
     currentBuild.description = "Trigger by ${userName} ${branch}"
+    gitlab.ChangeCommitStatus(projectId,commitSha,"running")
  }
 
 //pipeline
@@ -57,16 +59,19 @@ pipeline{
      success{
        script{
          println("success")
+         gitlab.ChangeCommitStatus(projectId,commitSha,"success")
        }
      }
      failure{
        script{
          println("failure")
+         gitlab.ChangeCommitStatus(projectId,commitSha,"failed")
        }
      }
      aborted{
         script{
           println("aborted")
+          gitlab.ChangeCommitStatus(projectId,commitSha,"canceled")
         }
       }
      }
