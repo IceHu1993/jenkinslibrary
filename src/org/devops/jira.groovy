@@ -2,7 +2,7 @@ package org.devops
 
 //封装HTTP请求
 def HttpReq(reqType,reqUrl,reqBody){
-    def apiServer = "http://192.168.1.200:8050/rest/api/2"
+    def apiServer = "http://192.168.202.101:8080/rest/api/2"
    
    result = httpRequest authentication: 'jira-admin-user',
             httpMode: reqType, 
