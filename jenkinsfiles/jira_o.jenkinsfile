@@ -1,0 +1,47 @@
+#!groovy
+
+@Library('jenkinslibrary') _
+
+def gitlab = new org.devops.gitlab()
+def jira = new org.devops.jira()
+
+pipeline {
+    agent { node { label "master"}}
+
+
+    stages{
+
+        stage("FileterData"){
+            steps{
+                script{
+                    response = readJSON text: """${webHookData}"""
+
+                    println(response)
+
+                    env.eventType = response["webhookEvent"]
+
+                    switch(eventType) {
+                        case "jira:issue_created":
+                            env.issueName = response['issue']['key']
+                            env.userName = response['user']['name']
+                            env.moduleNames = response['issue']['fields']['components']
+                            env.fixVersion = response['issue']['fields']['fixVersions']
+                            currentBuild.description = " Trigger by ${userName} ${eventType} ${issueName} "
+                            break
+
+                        case "jira:issue_updated":
+                            env.issueName = response['issue']['key']
+                            env.userName = response['user']['name']
+                            env.moduleNames = response['issue']['fields']['components']
+                            env.fixVersion = response['issue']['fields']['fixVersions']
+                            currentBuild.description = " Trigger by ${userName} ${eventType} ${issueName} "
+                            break
+                            
+                        default:
+                            println("hello")
+                    }
+                }
+            }
+        }
+    }
+}
