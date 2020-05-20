@@ -4,7 +4,7 @@ package org.devops
 def HttpReq(reqType,reqUrl,reqBody){
     def apiServer = "http://192.168.202.101:8080/rest/api/2"
    
-   result = httpRequest authentication: 'jira-software-users', //'jira-admin-user'
+   result = httpRequest authentication: 'jira-api-token', 
             httpMode: reqType, 
             contentType: "APPLICATION_JSON",
             consoleLogResponseBody: true,
