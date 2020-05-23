@@ -63,12 +63,12 @@ pipeline {
             steps{
                 script{
                     //获取K8s文件
-                    response = k8s.GetDeployment("demo-uat","demoapp")
+                    response = k8s.GetDeployment("demo-prod","demoapp")
                     response = response.content
                     //文件转换
                     base64Content = response.bytes.encodeBase64().toString()
                    //上传文件
-                   gitlab.CreateRepoFile(7,"demo-uat%2f${versionName}-uat.yaml",base64Content)
+                   gitlab.CreateRepoFile(5,"demo-prod%2f${versionName}-prod.yaml",base64Content)
                 }
             
             }
