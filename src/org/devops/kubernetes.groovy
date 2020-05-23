@@ -25,7 +25,7 @@ def CreateDeployment(nameSpace,deployName,deplyBody){
 }
 
 //删除deployment
-def DeleteDeployment(nameSpace,deployName){
+def DeleteDeployment(nameSpace,deployName,deplyBody){
     apiUrl = "namespaces/${nameSpace}/deployments/${deployName}"
     response = HttpReq('DELETE',apiUrl,deplyBody)
     println(response)
