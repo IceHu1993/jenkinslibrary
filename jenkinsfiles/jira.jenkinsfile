@@ -20,6 +20,7 @@ pipeline {
                     println(response)
 
                     env.eventType = response["webhookEvent"]
+                    println(env.eventType)
 
                     switch(eventType) {
                         case "jira:version_created":
