@@ -20,11 +20,11 @@ String buildShell = "${env.buildShell}"
 String deployHosts = "${env.deployHosts}"
 
 String srcUrl = "${env.srcUrl}"
-String branchName = "${env.branchName}"
+String branchName = "${env.branch}"
 
 
 
-branchName = branch - "refs/heads/"
+branchName = branchName - "refs/heads/"
 
 currentBuild.description = "Trigger by ${userName} ${branch}"
 gitlab.ChangeCommitStatus(projectId,commitSha,"running")
