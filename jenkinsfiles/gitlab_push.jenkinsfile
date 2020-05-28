@@ -54,7 +54,7 @@ pipeline{
                                       doGenerateSubmoduleConfigurations: false, 
                                       extensions: [], 
                                       submoduleCfg: [], 
-                                      userRemoteConfigs: [[credentialsId: 'gitlab_user_password', url: "${srcUrl}"]]])
+                                      userRemoteConfigs: [[credentialsId: 'gitlab_user_password', url: "http://192.168.202.102:30088/root/demo-maven-service.git"]]])
 
                 }
             }
