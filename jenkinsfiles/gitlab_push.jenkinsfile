@@ -13,7 +13,7 @@ def sonarapi = new org.devops.sonarapi()
 def artifactory = new org.devops.artifactory() 
 
 
-def runOpts
+//def runOpts
 //env
 String buildType = "${env.buildType}"
 String buildShell = "${env.buildShell}"
@@ -36,7 +36,7 @@ gitlab.ChangeCommitStatus(projectId,commitSha,"running")
 
 //pipeline
 pipeline{
-    agent { node { label "build"}}
+    agent { node { label "master"}}
     
     
     stages{
