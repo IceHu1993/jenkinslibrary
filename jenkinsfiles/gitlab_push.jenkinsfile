@@ -25,6 +25,7 @@ String branchName = "${env.branch}"
 
 
 branchName = branchName - "refs/heads/"
+println(branchName)
 
 currentBuild.description = "Trigger by ${userName} ${branch}"
 gitlab.ChangeCommitStatus(projectId,commitSha,"running")
