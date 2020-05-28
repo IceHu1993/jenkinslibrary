@@ -53,7 +53,7 @@ pipeline{
                                       doGenerateSubmoduleConfigurations: false, 
                                       extensions: [], 
                                       submoduleCfg: [], 
-                                      userRemoteConfigs: [[credentialsId: 'gitlab-admin-user', url: "${srcUrl}"]]])
+                                      userRemoteConfigs: [[credentialsId: 'gitlab_api_token_string', url: "${srcUrl}"]]])
 
                 }
             }
