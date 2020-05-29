@@ -3,11 +3,11 @@ package org.devops
 
 //Maven打包构建
 def MavenBuild(buildShell){
-    def server = Artifactory.newServer url: "http://192.168.1.200:30082/artifactory"
+    def server = Artifactory.newServer url: "http://106.13.217.55:8081//artifactory"
     def rtMaven = Artifactory.newMavenBuild()
     def buildInfo
     server.connection.timeout = 300
-    server.credentialsId = 'artifactory-admin-user' 
+    server.credentialsId = 'artifactory-admin-password' 
     //maven打包
     rtMaven.tool = 'M2' 
     buildInfo = Artifactory.newBuildInfo()
